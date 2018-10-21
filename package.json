@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API in NodeJS use Sequelize,MySQL,JWT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "main": "index.js",
+  "author": "ducpv",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "init": "^0.1.2",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.41.0",
+    "sequelize-cli": "^5.2.0"
+  },
+  "repository": "https://github.com/phanduc0908/NodeJS-RESTfulAPI-JWT-MySQL.git"
+}
