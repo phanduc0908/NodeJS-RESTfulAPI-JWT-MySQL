@@ -27,10 +27,10 @@ router.post("/movie/create", (req,res,next)=>{
         description
     } = req.body;
     model.Movie.create({
-        title : "title",
-        description : "description"
+        title : title,
+        description : description
     }).then((result)=>{
-        return res.send({error:false, data:result, message :"Create new Movie"});
+        return res.status(201).send({error:false, data:result, message :"Create new Movie"});
     }).catch((err)=>{
         return res.send({error:true, data:result, message :err});
     })
@@ -38,7 +38,15 @@ router.post("/movie/create", (req,res,next)=>{
 })
 // Update /id
 router.put("/movie/update/:id", (req,res,next)=>{
-
+    const movie_id = req.params.id;
+    const {title, description} = req.body;
+    model.Movie.update({title:title, description:description},
+        {where : {id:movie_id}}
+        ).then((result)=>{
+            return res.status(201).send({error:false, data:result, message :"Update movie ID:"+movie_id});
+        }).catch((err)=>{
+            return res.send({error:true, data:result, message :err});
+        })
 })
 // Delete /id
 router.delete("/movie/delete/:id", (req,res,next)=>{
